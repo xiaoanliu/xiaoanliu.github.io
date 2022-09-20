@@ -61,7 +61,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 1
+    总文章数 2
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -155,6 +155,98 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-IDEA集成git文档说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>设置 <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=GitHub&spm=1001.2101.3001.7020">GitHub</a> 账号并授权</li>
+</ol>
+<p>打开设置-&gt;版本控制-&gt;GitHub</p>
+<image src="img/idea_git/2.png" width="600" height="500">
+
+<p>此处选择通过GitHub登录，通过浏览器进行授权</p>
+<image src="img/idea_git/3.png" width="600" height="500">
+
+<image src="img/idea_git/4.png"  width="500" height="400">
+
+<p>授权成功后，回到IDEA中，可以看到自己登录的账号</p>
+<image src="img/idea_git/5.png" width="500" height="400">
+
+<p>2、创建本地git仓库</p>
+<image src="img/idea_git/6.png" width="300" height="300">
+
+<p>路径设置<br><image src="img/idea_git/7.png" width="400" height="300"></p>
+<p>设置成功后”VCS”选项会变成”Git”（<br>F:\workspace\git\.idea\vcs.xml文件中 &lt;mapping<br>directory&#x3D;&quot;$PROJECT_DIR$&quot; vcs&#x3D;&quot;Git&quot; &#x2F;&gt; 将Git 改成none<br>“Git”会改回”VCS”）。</p>
+<ol start="3">
+<li>上传代码</li>
+</ol>
+<p>Git add</p>
+<p>Git commit（上传到本地git仓库）</p>
+<p>Git push（上传到git仓库）</p>
+<ol start="4">
+<li>上传报错：</li>
+</ol>
+<blockquote>
+<p><a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a>: Permission denied (publickey).</p>
+<p>fatal: Could not read from remote repository.</p>
+<p>这个问题是Git仓库没有添加ssh key所导致</p>
+</blockquote>
+<p>解决办法如下：</p>
+<p>Git cmd输入命令：</p>
+<p>ssh-keygen -t rsa -C 邮箱地址</p>
+<p>一路回车(不需要输入其他内容），直到生成密钥如下图所示。<br><image src="img/idea_git/8.png" width="400" height="300"></p>
+<p>打开上图所示文件并复制全部内容。</p>
+<p>打开github网站：右上角--&gt; settings --&gt; SSH and GPG keys</p>
+<image src="img/idea_git/9.png" width="400" height="300">
+
+
+<p>复制内容粘贴在key中并取个title，然后点击add ssh key即可。</p>
+<p>添加成功如下图所示：<br><image src="img/idea_git/10.png" width="400" height="300"></p>
+<p>idea再次push即可</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/20/IDEA%E9%9B%86%E6%88%90git%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
