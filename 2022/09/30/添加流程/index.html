@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | 刘小安个人博客</title>
+  <title>刘小安个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="##添加操作流程（从前段&#x3D;&#x3D;&gt;后端） ###一、前段实现流程####jsp：为保存按钮绑定事件，执行添加操作。     $(“#saveBtn”).click(function (){                               $.ajax({                                         url:”workbench&amp;">
+<meta property="og:type" content="article">
 <meta property="og:title" content="刘小安个人博客">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2022/09/30/%E6%B7%BB%E5%8A%A0%E6%B5%81%E7%A8%8B/index.html">
 <meta property="og:site_name" content="刘小安个人博客">
+<meta property="og:description" content="##添加操作流程（从前段&#x3D;&#x3D;&gt;后端） ###一、前段实现流程####jsp：为保存按钮绑定事件，执行添加操作。     $(“#saveBtn”).click(function (){                               $.ajax({                                         url:”workbench&amp;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-30T02:19:40.215Z">
+<meta property="article:modified_time" content="2022-09-30T02:19:16.272Z">
 <meta property="article:author" content="刘小安">
 <meta name="twitter:card" content="summary">
   
@@ -154,91 +158,164 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-添加流程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##添加操作流程（从前段&#x3D;&#x3D;&gt;后端）</p>
+<p>###一、前段实现流程<br>####jsp：为保存按钮绑定事件，执行添加操作。 </p>
+<!--jQuery 基础语法： $(selector).action()--><br>
+
+<!--给id=saveBtn添加鼠标点击事件-->
+<p>$(“#saveBtn”).click(function (){<br>                <!--//ajax向后台发送添加参数--><br>               $.ajax({<br>                     <!--//url为web.xml中servlet中url-pattern标签的值(开头位置不能有“/”)--><br>                    url:”workbench&#x2F;activity&#x2F;save.do”,<br>                    &#x2F;&#x2F;data为参数列表注意取值格式<br>                    data:{<br>                        “owner”: $.trim($(“#create-owner”).val()),<br>                        “name”: $.trim($(“#create-name”).val()),<br>                        “startDate”: $.trim($(“#create-startDate”).val()),<br>                        “endDate”: $.trim($(“#create-endDate”).val()),<br>                        “cost”: $.trim($(“#create-cost”).val()),<br>                        “description”: $.trim($(“#create-description”).val())<br>                    },<br>                    type:”post”,<br>                    dataType:”json”,<br>                    <!--//success 是请求成功后的回调函数--><br>                    success: function (data){<br>                        if(data.success){<br>                            &#x2F;&#x2F;添加成功刷新市场活动信息列表（局部刷新）</p>
+<pre><code>                        //清空窗口中的数据
+                       $(&quot;#activityAddForm&quot;)[0].reset();
+
+
+                        //关闭添加操作的窗口
+                       $(&quot;#createActivityModal&quot;).modal(&quot;hide&quot;);
+
+                    &#125;else&#123;
+                        alert(&quot;添加失败&quot;);
+                    &#125;
+</code></pre>
+<p>###二、后端实现流程<br>    1.在web.xml根据url的地址找到对应的controller<br>    2.在service方法中对url-pattern中的路径进行匹配，并执行对应的方法<br>    if (“&#x2F;workbench&#x2F;activity&#x2F;getUserList.do”.equals(path)) {<br>            getUserList(request, response);</p>
+<pre><code>    &#125; else if (&quot;/workbench/activity/save.do&quot;.equals(path)) &#123;
+        save(request,response);
+    &#125;
+3.执行save方法即可
+                
+</code></pre>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/09/30/%E6%B7%BB%E5%8A%A0%E6%B5%81%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2022-09-30T02:19:40.215Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-30</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/09/30/%E6%B7%BB%E5%8A%A0%E6%B5%81%E7%A8%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/09/20/IDEA%E9%9B%86%E6%88%90git%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E/" class="archive-article-date">
-  	<time datetime="2022-09-20T12:31:09.007Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-20</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/09/18/hello-world/" class="archive-article-date">
-  	<time datetime="2022-09-18T07:32:14.392Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-18</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/09/18/hello-world/">Hello World</a>
-    </h1>
+  
+    <a href="/2022/09/20/IDEA%E9%9B%86%E6%88%90git%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -261,8 +338,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -61,7 +61,7 @@
 			</ul>
 		</nav>
 		<nav>
-    总文章数 2
+    总文章数 3
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -156,6 +156,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-添加流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##添加操作流程（从前段&#x3D;&#x3D;&gt;后端）</p>
+<p>###一、前段实现流程<br>####jsp：为保存按钮绑定事件，执行添加操作。 </p>
+<!--jQuery 基础语法： $(selector).action()--><br>
+
+<!--给id=saveBtn添加鼠标点击事件-->
+<p>$(“#saveBtn”).click(function (){<br>                <!--//ajax向后台发送添加参数--><br>               $.ajax({<br>                     <!--//url为web.xml中servlet中url-pattern标签的值(开头位置不能有“/”)--><br>                    url:”workbench&#x2F;activity&#x2F;save.do”,<br>                    &#x2F;&#x2F;data为参数列表注意取值格式<br>                    data:{<br>                        “owner”: $.trim($(“#create-owner”).val()),<br>                        “name”: $.trim($(“#create-name”).val()),<br>                        “startDate”: $.trim($(“#create-startDate”).val()),<br>                        “endDate”: $.trim($(“#create-endDate”).val()),<br>                        “cost”: $.trim($(“#create-cost”).val()),<br>                        “description”: $.trim($(“#create-description”).val())<br>                    },<br>                    type:”post”,<br>                    dataType:”json”,<br>                    <!--//success 是请求成功后的回调函数--><br>                    success: function (data){<br>                        if(data.success){<br>                            &#x2F;&#x2F;添加成功刷新市场活动信息列表（局部刷新）</p>
+<pre><code>                        //清空窗口中的数据
+                       $(&quot;#activityAddForm&quot;)[0].reset();
+
+
+                        //关闭添加操作的窗口
+                       $(&quot;#createActivityModal&quot;).modal(&quot;hide&quot;);
+
+                    &#125;else&#123;
+                        alert(&quot;添加失败&quot;);
+                    &#125;
+</code></pre>
+<p>###二、后端实现流程<br>    1.在web.xml根据url的地址找到对应的controller<br>    2.在service方法中对url-pattern中的路径进行匹配，并执行对应的方法<br>    if (“&#x2F;workbench&#x2F;activity&#x2F;getUserList.do”.equals(path)) {<br>            getUserList(request, response);</p>
+<pre><code>    &#125; else if (&quot;/workbench/activity/save.do&quot;.equals(path)) &#123;
+        save(request,response);
+    &#125;
+3.执行save方法即可
+                
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/30/%E6%B7%BB%E5%8A%A0%E6%B5%81%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-IDEA集成git文档说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -190,7 +261,7 @@
 <li>上传报错：</li>
 </ol>
 <blockquote>
-<p><a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a>: Permission denied (publickey).</p>
+<p><a href="mailto:&#x67;&#105;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">&#x67;&#105;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;</a>: Permission denied (publickey).</p>
 <p>fatal: Could not read from remote repository.</p>
 <p>这个问题是Git仓库没有添加ssh key所导致</p>
 </blockquote>
